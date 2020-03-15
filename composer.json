@@ -1,5 +1,5 @@
 {
-    "name": "imanghafoori/eloquent-relativity",
+    "name": "railken/eloquent-relativity",
     "description": "A way to truely decouple eloquent models.",
     "keywords": ["laravel", "laravel-eloquent", "PHP", "laravel5"],
     "license": "MIT",
