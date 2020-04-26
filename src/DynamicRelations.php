@@ -30,7 +30,9 @@ trait DynamicRelations
 
     public static function bootDynamicRelations()
     {
-        static::$dynamicRelations = new RelationStore();
+        if (!static::$dynamicRelations) {
+            static::$dynamicRelations = new RelationStore();
+        }
     }
 
     /**
@@ -50,6 +52,8 @@ trait DynamicRelations
 
             return $manager->$method(...array_merge([$this], $parameters));
         }
+
+        $has = static::$dynamicRelations->has($this, $method);
 
         // Handle relationships
         $dynamicRelation = static::$dynamicRelations->get($this, $method);
